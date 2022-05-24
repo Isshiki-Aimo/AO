@@ -6,12 +6,18 @@
 #define PSO_GRAPH_H
 #include "Coordinate.h"
 #include "Information.h"
+#include "Particle.h"
+#include <iostream>
+
+using namespace std;
 
 
 class Graph {
-    Coordinate city[CityNum];
+public:
+    Coordinate *city[CityNum];
     float Distance[CityNum][CityNum];
     void ComputeDistance();
+    void ShowDistance();
 
 };
 
