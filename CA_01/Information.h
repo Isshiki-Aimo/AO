@@ -9,7 +9,7 @@
 #define Good_Num  100
 #define Gene_num  100
 #define Max_Generation  3000
-#define pop_size  500
+#define pop_size  100
 #define Pc  0.9
 #define Pm  0.08
 
