@@ -14,8 +14,10 @@ using namespace std;
 
 int main() {
     Graph graph;
-    graph.ComputeDistance();
-    graph.ShowDistance();
+    int *a = graph.Random_Order(CityNum);
+    for (int i = 0; i < CityNum; ++i) {
+        cout << a[i] << " ";
+    }
 
     return 0;
 }

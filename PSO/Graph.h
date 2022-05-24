@@ -18,6 +18,7 @@ public:
     float Distance[CityNum][CityNum];
     void ComputeDistance();
     void ShowDistance();
+    int *Random_Order(int city_num);
 
 };
 
