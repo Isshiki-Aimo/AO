@@ -34,32 +34,5 @@ void Graph::ShowDistance() {
     }
 }
 
-int *Graph::Random_Order(int city_num) {
-    int *order;
-    order = new int[city_num];
-    int j = 0;
-    while (j < city_num) {
-        while (true) {
-            int flag = -1;
-            int temp = rand() % city_num + 1;
-            if (j > 0) {
-                int k = 0;
-                for (; k < j; k++) {
-                    if (temp == *(order + k))break;
-                }
-                if (k == j) {
-                    *(order + j) = temp;
-                    flag = 1;
-                }
-            } else {
-                *(order + j) = temp;
-                flag = 1;
-            }
-            if (flag == 1)break;
-        }
-        j++;
-    }
-    return order;
-}
 
 

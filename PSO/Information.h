@@ -5,6 +5,8 @@
 #ifndef PSO_INFORMATION_H
 #define PSO_INFORMATION_H
 
+#include <cstdlib>
+
 #define C1 1.49445
 #define C2 1.49445
 #define W 0.729
@@ -85,5 +87,33 @@ const int City_y[] = {52, 49, 64, 26, 30, 47,
                       22, 35, 15, 6, 17,
                       10, 64, 15, 10, 39,
                       32, 55, 28, 37, 40};
+
+static int * Random_Order(int city_num) {
+    int *order;
+    order = new int[city_num];
+    int j = 0;
+    while (j < city_num) {
+        while (true) {
+            int flag = -1;
+            int temp = rand() % city_num + 1;
+            if (j > 0) {
+                int k = 0;
+                for (; k < j; k++) {
+                    if (temp == *(order + k))break;
+                }
+                if (k == j) {
+                    *(order + j) = temp;
+                    flag = 1;
+                }
+            } else {
+                *(order + j) = temp;
+                flag = 1;
+            }
+            if (flag == 1)break;
+        }
+        j++;
+    }
+    return order;
+}
 
 #endif //PSO_INFORMATION_H

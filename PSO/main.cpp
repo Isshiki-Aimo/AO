@@ -13,8 +13,8 @@
 using namespace std;
 
 int main() {
-    Graph graph;
-    int *a = graph.Random_Order(CityNum);
+    srand(time(NULL));
+    int *a = Random_Order(CityNum);
     for (int i = 0; i < CityNum; ++i) {
         cout << a[i] << " ";
     }

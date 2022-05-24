@@ -21,6 +21,7 @@ public:
         x = new int[CityNum];
         v = new int[CityNum];
 
+
     }
 };
 
