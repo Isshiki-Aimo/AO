@@ -13,11 +13,9 @@
 using namespace std;
 
 int main() {
-    srand(time(NULL));
-    int *a = Random_Order(CityNum);
-    for (int i = 0; i < CityNum; ++i) {
-        cout << a[i] << " ";
-    }
 
+    srand(time(NULL));
+    Graph graph;
+    Particle particle;
     return 0;
 }
