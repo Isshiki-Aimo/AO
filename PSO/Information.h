@@ -7,11 +7,12 @@
 
 #include <cstdlib>
 
-#define C1 1.49445
-#define C2 1.49445
-#define W 0.729
+//#define C1 1.49445
+//#define C2 1.49445
+//#define W 0.729
 #define MAX_ITERATION 100
 #define MAX_PARTICLE_NUM 100
+
 #define CityNum 51
 
 //const float City[51][2] = {{37, 52},

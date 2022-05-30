@@ -6,7 +6,6 @@
 #define PSO_GRAPH_H
 #include "Coordinate.h"
 #include "Information.h"
-#include "Particle.h"
 #include <iostream>
 
 using namespace std;

@@ -2,6 +2,7 @@
 // Created by Aimo on 2022/5/24.
 //
 
+#include <valarray>
 #include "Graph.h"
 
 void Graph::ComputeDistance() {
