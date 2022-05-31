@@ -287,6 +287,7 @@ public:
 PSO pso;
 
 int main() {
+//    srand(time(NULL));
     pso.PSO_TSP(30, 500, 2, 2, 0.8, 3.0);
     return 0;
 }
