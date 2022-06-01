@@ -9,26 +9,26 @@
 using namespace std;
 
 void Population::compute_fitness() {
-    for (int i = 0; i < pop_size; i++) {
-        population[i].value = 0;
-        population[i].weight = 0;
+    for (auto & i : population) {
+        i.value = 0;
+        i.weight = 0;
         for (int j = 0; j < Gene_num; j++) {
-            population[i].weight += Goods_weight[j] * population[i].gene[j];
-            population[i].value += Goods_value[j] * population[i].gene[j];
+            i.weight += Goods_weight[j] * i.gene[j];
+            i.value += Goods_value[j] * i.gene[j];
         }
-        if (population[i].weight > Max_Weight) {
-            repair_chromosome(population[i]);
+        if (i.weight > Max_Weight) {
+            repair_chromosome(i);
         }
     }
 }
 
 void Population::repair_chromosome(Chromosome &c) {
     //拿出
-    for (int j = 0; j < Gene_num; j++) {
-        if (c.gene[Chr_index[j]] == 1) {
-            c.gene[Chr_index[j]] = 0;
-            c.value -= Goods_value[Chr_index[j]];
-            c.weight -= Goods_weight[Chr_index[j]];
+    for (int j : Chr_index) {
+        if (c.gene[j] == 1) {
+            c.gene[j] = 0;
+            c.value -= Goods_value[j];
+            c.weight -= Goods_weight[j];
         }
         if (c.weight <= Max_Weight) {
             break;
@@ -55,9 +55,9 @@ void Population::init_population(int seed) {
     compute_value_rate();
     sort_by_value_rate();
     srand(seed);
-    for (int i = 0; i < pop_size; i++) {
-        for (int j = 0; j < Gene_num; j++) {
-            population[i].gene[j] = rand() % 2;
+    for (auto & i : population) {
+        for (int & j : i.gene) {
+            j = rand() % 2;
         }
     }
     cout << "init_population" << endl;

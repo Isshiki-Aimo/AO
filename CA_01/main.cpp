@@ -23,7 +23,11 @@ int main(){
             a.Global_best_chromosome = a.best_chromosome;
         }
     }
-    cout<<"The best chromosome is: "<<a.Global_best_chromosome.value<<endl;
+    cout<<"The best value is: "<<a.Global_best_chromosome.value<<endl;
+    cout<<"the best chromosome is  " << endl;
+    for (int i : a.Global_best_chromosome.gene) {
+        cout << i;
+    }
     return 0;
 
 }
