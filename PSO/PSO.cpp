@@ -5,7 +5,7 @@
 #include "PSO.h"
 
 void PSO::Init(int Pop_Size, int itetime, double C1, double C2, double W, Graph Map_City) {
-    cout << "start init" <<endl;
+    cout << "start init" << endl;
     Itetime = itetime;
     c1 = C1;
     c2 = C2;
@@ -65,8 +65,8 @@ void PSO::PSO_TSP(int Pop_size, int itetime, double C1, double C2, double W, flo
             }
             //粒子位置有效性调整，必须满足解空间的条件
             oldparticle[i].repair(oldparticle[i]);
-            oldparticle[i].fitness = oldparticle[i].Evaluate(oldparticle[i].x,Map_City);
-            pbest[i].fitness = oldparticle[i].Evaluate(pbest[i].x,Map_City);
+            oldparticle[i].fitness = oldparticle[i].Evaluate(oldparticle[i].x, Map_City);
+            pbest[i].fitness = oldparticle[i].Evaluate(pbest[i].x, Map_City);
             if (oldparticle[i].fitness < pbest[i].fitness) {
                 for (int j = 0; j < CityNum; j++)
                     pbest[i].x[j] = oldparticle[i].x[j];
@@ -74,10 +74,10 @@ void PSO::PSO_TSP(int Pop_size, int itetime, double C1, double C2, double W, flo
             for (int j = 0; j < CityNum; j++)
                 gbest.x[j] = pbest[i].x[j];//更新全局极值
             for (int k = 0; k < popsize && k != i; k++) {
-                if (pbest[k].Evaluate(pbest[k].x,Map_City) < gbest.Evaluate(gbest.x,Map_City)) {
+                if (pbest[k].Evaluate(pbest[k].x, Map_City) < gbest.Evaluate(gbest.x, Map_City)) {
                     for (int j = 0; j < CityNum; j++)
                         gbest.x[j] = pbest[k].x[j];
-                    gbest.fitness = gbest.Evaluate(gbest.x,Map_City);
+                    gbest.fitness = gbest.Evaluate(gbest.x, Map_City);
                 }
             }
         }

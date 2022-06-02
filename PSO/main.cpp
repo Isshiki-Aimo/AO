@@ -15,6 +15,6 @@ int main() {
     Graph graph{};
     graph.ComputeDistance();
     PSO pso;
-    pso.PSO_TSP(30, 500, 2, 2, 0.8, 3.0,graph);
+    pso.PSO_TSP(30, 500, 2, 2, 0.8, 3.0, graph);
     return 0;
 }
