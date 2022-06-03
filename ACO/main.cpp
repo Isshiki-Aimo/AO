@@ -13,9 +13,9 @@ using namespace std;
 int main() {
     Graph g{};
     g.Init();
-    CVRP cvpr{};
+    CVRP cvrp{};
     srand((unsigned) time(NULL));
-    cvpr.Init();
-    cvpr.Search(g);
+    cvrp.Init();
+    cvrp.Search(g);
 
 }

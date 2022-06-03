@@ -47,6 +47,7 @@ void CVRP::Search(Graph g) {
         }
         //更新信息素
         Update(g);
+        cout << "第"<<i+1<<"次迭代，最优路径长度为：" << best_ant.Path_Length << endl;
     }
 
     for (int i: best_ant.Path) {

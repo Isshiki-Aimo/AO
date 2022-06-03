@@ -17,7 +17,7 @@ void Ant::init() {
     Visited[Location] = 0;
     City_Count++;
     Path[0] = Location;
-    v = 0;
+    Weight = 0;
 
 }
 
@@ -56,18 +56,18 @@ int Ant::ChooseNextCity(Graph g) {
 
 void Ant::move(Graph g) {
     int next_city = ChooseNextCity(g);
-    v = v + need[next_city];
-    if (v <= max_v) {
+    Weight = Weight + need[next_city];
+    if (Weight <= max_v) {
         Path[City_Count] = next_city;
         Visited[next_city] = 0;
         Location = next_city;
         City_Count++;
     }
-    if (v > max_v) {
+    if (Weight > max_v) {
         Path[City_Count] = 0;//回到仓库
         Location = 0;
         City_Count++;
-        v = 0;//装货后接着上路
+        Weight = 0;//装货后接着上路
     }
 
 
