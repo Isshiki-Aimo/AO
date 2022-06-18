@@ -87,7 +87,7 @@ public:
 
 };
 
-int *Random_Order(int city_num) //éšæœºç”Ÿæˆåºåˆ—
+int *Random_Order(int city_num) //Ëæ»úÉú³ÉĞòÁĞ
 {
     int *order;
     order = new int[city_num];
@@ -119,7 +119,7 @@ int *Random_Order(int city_num) //éšæœºç”Ÿæˆåºåˆ—
 
 Graph Map_City;
 
-double Evaluate(int *x)//è®¡ç®—ç²’å­é€‚åº”å€¼çš„å‡½æ•°
+double Evaluate(int *x)//¼ÆËãÁ£×ÓÊÊÓ¦ÖµµÄº¯Êı
 {
     double fitnessvalue = 0;
     for (int i = 0; i < CityNum - 1; i++)
@@ -130,8 +130,8 @@ double Evaluate(int *x)//è®¡ç®—ç²’å­é€‚åº”å€¼çš„å‡½æ•°
 
 class Particle {
 public:
-    int *x;//ç²’å­çš„ä½ç½®
-    int *v;//ç²’å­çš„é€Ÿåº¦
+    int *x;//Á£×ÓµÄÎ»ÖÃ
+    int *v;//Á£×ÓµÄËÙ¶È
     double fitness;
 
     void Init() {
@@ -159,37 +159,37 @@ public:
 };
 
 
-void repair(Particle p)//ä¿®å¤åºåˆ—
+void repair(Particle p)//ĞŞ¸´ĞòÁĞ
 {
     int route[CityNum];
-    bool flag[CityNum];//å¯¹åº”routeæ•°ç»„ä¸­æ˜¯å¦åœ¨ç²’å­çš„ä½ç½®ä¸­å­˜åœ¨çš„æ•°ç»„ï¼Œå‚è€ƒæ•°ç»„ä¸ºroute
-    int tag[CityNum];//å¯¹ç²’å­æ¯ä¸ªå…ƒç´ è¿›è¡Œæ ‡è®°çš„æ•°ç»„,å‚è€ƒæ•°ç»„ä¸ºç²’å­ä½ç½®x
+    bool flag[CityNum];//¶ÔÓ¦routeÊı×éÖĞÊÇ·ñÔÚÁ£×ÓµÄÎ»ÖÃÖĞ´æÔÚµÄÊı×é£¬²Î¿¼Êı×éÎªroute
+    int tag[CityNum];//¶ÔÁ£×ÓÃ¿¸öÔªËØ½øĞĞ±ê¼ÇµÄÊı×é,²Î¿¼Êı×éÎªÁ£×ÓÎ»ÖÃx
     for (int j = 0; j < CityNum; j++) {
         route[j] = j + 1;
-        flag[j] = false;    //æ˜¯å¦å­˜åœ¨
+        flag[j] = false;    //ÊÇ·ñ´æÔÚ
         tag[j] = 0;
     }
-    //é¦–å…ˆåˆ¤æ–­ç²’å­pçš„ä½ç½®ä¸­æ˜¯å¦æœ‰æŸä¸ªåŸå¸‚ä¸”å”¯ä¸€ï¼Œè‹¥æœ‰ä¸”å”¯ä¸€ï¼Œåˆ™å¯¹åº”flagçš„å€¼ä¸ºtrue,
+    //Ê×ÏÈÅĞ¶ÏÁ£×ÓpµÄÎ»ÖÃÖĞÊÇ·ñÓĞÄ³¸ö³ÇÊĞÇÒÎ¨Ò»£¬ÈôÓĞÇÒÎ¨Ò»£¬Ôò¶ÔÓ¦flagµÄÖµÎªtrue,
     for (int j = 0; j < CityNum; j++) {
         int num = 0;
         for (int k = 0; k < CityNum; k++) {
             if (p.x[k] == route[j]) {
-                tag[k] = 1;//è¯´æ˜ç²’å­ä¸­çš„kå·å…ƒç´ å¯¹åº”çš„åŸå¸‚åœ¨routeä¸­ï¼Œå¹¶ä¸”æ˜¯ç¬¬ä¸€æ¬¡å‡ºç°æ‰è¿›è¡Œæ ‡è®°
+                tag[k] = 1;//ËµÃ÷Á£×ÓÖĞµÄkºÅÔªËØ¶ÔÓ¦µÄ³ÇÊĞÔÚrouteÖĞ£¬²¢ÇÒÊÇµÚÒ»´Î³öÏÖ²Å½øĞĞ±ê¼Ç
                 num++;
                 break;
             }
         }
-        if (num == 0) flag[j] = false;//ç²’å­è·¯çº¿ä¸­æ²¡æœ‰route[j]è¿™ä¸ªåŸå¸‚
-        else if (num == 1) flag[j] = true;//ç²’å­è·¯çº¿ä¸­æœ‰route[j]è¿™ä¸ªåŸå¸‚
+        if (num == 0) flag[j] = false;//Á£×ÓÂ·ÏßÖĞÃ»ÓĞroute[j]Õâ¸ö³ÇÊĞ
+        else if (num == 1) flag[j] = true;//Á£×ÓÂ·ÏßÖĞÓĞroute[j]Õâ¸ö³ÇÊĞ
     }
     for (int k = 0; k < CityNum; k++) {
-        if (!flag[k])//ç²’å­è·¯çº¿ä¸­æ²¡æœ‰route[k]è¿™ä¸ªåŸå¸‚ï¼Œéœ€è¦å°†è¿™ä¸ªåŸå¸‚åŠ å…¥åˆ°ç²’å­è·¯çº¿ä¸­
+        if (!flag[k])//Á£×ÓÂ·ÏßÖĞÃ»ÓĞroute[k]Õâ¸ö³ÇÊĞ£¬ĞèÒª½«Õâ¸ö³ÇÊĞ¼ÓÈëµ½Á£×ÓÂ·ÏßÖĞ
         {
             int i = 0;
             for (; i < CityNum; i++) {
                 if (tag[i] != 1)break;
             }
-            p.x[i] = route[k];//å¯¹äºæ ‡è®°ä¸º0çš„è¿›è¡Œæ›¿æ¢
+            p.x[i] = route[k];//¶ÔÓÚ±ê¼ÇÎª0µÄ½øĞĞÌæ»»
             tag[i] = 1;
         }
     }
@@ -221,7 +221,7 @@ public:
             }
         }
         gbest.Init();
-        gbest.fitness = INFINITY;//ä¸ºå…¨å±€æœ€ä¼˜ç²’å­åˆå§‹åŒ–
+        gbest.fitness = INFINITY;//ÎªÈ«¾Ö×îÓÅÁ£×Ó³õÊ¼»¯
         for (int i = 0; i < popsize; i++) {
             if (pbest[i].fitness < gbest.fitness) {
                 gbest.fitness = pbest[i].fitness;
@@ -244,33 +244,33 @@ public:
         vmax = Vlimitabs;
         vmin = -Vlimitabs;
         Init(Pop_size, itetime, C1, C2, W);
-        cout << "åˆå§‹åŒ–åçš„ç§ç¾¤å¦‚ä¸‹ï¼š" << endl;
+        cout << "³õÊ¼»¯ºóµÄÖÖÈºÈçÏÂ£º" << endl;
         Show();
         for (int ite = 0; ite < Itetime; ite++) {
             for (int i = 0; i < popsize; i++) {
-                //æ›´æ–°ç²’å­é€Ÿåº¦å’Œä½ç½®
+                //¸üĞÂÁ£×ÓËÙ¶ÈºÍÎ»ÖÃ
                 for (int j = 0; j < CityNum; j++) {
                     oldparticle[i].v[j] = (int) (w * oldparticle[i].v[j] +
                                                  c1 * (rand() % 1000 / (float )(1000)) * (pbest[i].x[j] - oldparticle[i].x[j]) +
                                                  c2 * (rand() % 1000 / (float )(1000)) * (gbest.x[j] - oldparticle[i].x[j]));
-                    if (oldparticle[i].v[j] > vmax)//ç²’å­é€Ÿåº¦è¶Šç•Œè°ƒæ•´
+                    if (oldparticle[i].v[j] > vmax)//Á£×ÓËÙ¶ÈÔ½½çµ÷Õû
                         oldparticle[i].v[j] = (int) vmax;
                     else if (oldparticle[i].v[j] < vmin)
                         oldparticle[i].v[j] = (int) vmin;
                     oldparticle[i].x[j] += oldparticle[i].v[j];
-                    if (oldparticle[i].x[j] > CityNum)oldparticle[i].x[j] = CityNum;//ç²’å­ä½ç½®è¶Šç•Œè°ƒæ•´
+                    if (oldparticle[i].x[j] > CityNum)oldparticle[i].x[j] = CityNum;//Á£×ÓÎ»ÖÃÔ½½çµ÷Õû
                     else if (oldparticle[i].x[j] < 1) oldparticle[i].x[j] = 1;
                 }
-                //ç²’å­ä½ç½®æœ‰æ•ˆæ€§è°ƒæ•´ï¼Œå¿…é¡»æ»¡è¶³è§£ç©ºé—´çš„æ¡ä»¶
+                //Á£×ÓÎ»ÖÃÓĞĞ§ĞÔµ÷Õû£¬±ØĞëÂú×ã½â¿Õ¼äµÄÌõ¼ş
                 repair(oldparticle[i]);
                 oldparticle[i].fitness = Evaluate(oldparticle[i].x);
                 pbest[i].fitness = Evaluate(pbest[i].x);
                 if (oldparticle[i].fitness < pbest[i].fitness) {
                     for (int j = 0; j < CityNum; j++)
                         pbest[i].x[j] = oldparticle[i].x[j];
-                }//æ›´æ–°å•ä¸ªç²’å­çš„å†å²æå€¼
+                }//¸üĞÂµ¥¸öÁ£×ÓµÄÀúÊ·¼«Öµ
                 for (int j = 0; j < CityNum; j++)
-                    gbest.x[j] = pbest[i].x[j];//æ›´æ–°å…¨å±€æå€¼
+                    gbest.x[j] = pbest[i].x[j];//¸üĞÂÈ«¾Ö¼«Öµ
                 for (int k = 0; k < popsize && k != i; k++) {
                     if (Evaluate(pbest[k].x) < Evaluate(gbest.x)) {
                         for (int j = 0; j < CityNum; j++)

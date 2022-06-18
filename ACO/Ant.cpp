@@ -18,7 +18,6 @@ void Ant::init() {
     City_Count++;
     Path[0] = Location;
     Weight = 0;
-
 }
 
 int Ant::ChooseNextCity(Graph g) {

@@ -16,12 +16,12 @@ using namespace std;
 
 class Ant {
 public:
-    double Path_Length;//è·¯å¾„é•¿åº¦
-    int Path[20];//è·¯å¾„
-    int Visited[City_Num];//è®¿é—®è¿‡çš„åŸå¸‚
-    int Location;//å½“å‰æ‰€åœ¨åŸå¸‚ç¼–å·
-    int City_Count;//å·²ç»å»è¿‡çš„åŸå¸‚æ•°é‡
-    int Weight;//èš‚èšçš„è½½é‡é‡
+    double Path_Length;//Â·¾¶³¤¶È
+    int Path[20];//Â·¾¶
+    int Visited[City_Num];//·ÃÎÊ¹ıµÄ³ÇÊĞ
+    int Location;//µ±Ç°ËùÔÚ³ÇÊĞ±àºÅ
+    int City_Count;//ÒÑ¾­È¥¹ıµÄ³ÇÊĞÊıÁ¿
+    int Weight;//ÂìÒÏµÄÔØÖØÁ¿
 
     void init();
 

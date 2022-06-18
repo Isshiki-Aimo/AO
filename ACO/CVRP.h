@@ -7,11 +7,11 @@
 #include "Ant.h"
 
 
-class CVRP//å®¹é‡å—é™çš„è½¦è¾†è·¯å¾„é—®é¢˜
+class CVRP//ÈİÁ¿ÊÜÏŞµÄ³µÁ¾Â·¾¶ÎÊÌâ
 {
 public:
     Ant ants[Ant_num];
-    Ant best_ant;//è®°å½•æœ€ä¼˜çš„èš‚èš
+    Ant best_ant;//¼ÇÂ¼×îÓÅµÄÂìÒÏ
     void Init();
 
     void Update(Graph g);

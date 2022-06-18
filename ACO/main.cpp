@@ -17,5 +17,4 @@ int main() {
     srand((unsigned) time(NULL));
     cvrp.Init();
     cvrp.Search(g);
-
 }

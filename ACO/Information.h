@@ -5,17 +5,17 @@
 #ifndef ACO_INFORMATION_H
 #define ACO_INFORMATION_H
 
-const int City_Num = 11;//åŸå¸‚æ•°ç›®
+const int City_Num = 11;//³ÇÊĞÊıÄ¿
 const int Alpha = 1;
 const int Beta = 5;
-const int Q = 100;//è¡¨ç¤ºèš‚èšå¾ªç¯ä¸€æ¬¡æ‰€é‡Šæ”¾çš„ä¿¡æ¯ç´ æ€»é‡
-const double Theta = 0.2;//è¡¨ç¤ºä¿¡æ¯ç´ çš„è¡°å‡ç‡
-const int Ant_num = 50;//èš‚èšæ•°é‡
-const int item = 1000;//è¿­ä»£æ¬¡æ•°
-const int max_v = 120;//æœ€å¤§å®¹é‡
-const double Correction_X[City_Num] = {40, 25, 15, 10, 5, 0, 44, 35, 95, 85, 65};//åŸå¸‚çš„æ¨ªåæ ‡
-const double Correction_Y[City_Num] = {50, 85, 75, 35, 35, 40, 5, 5, 30, 35, 85};//åŸå¸‚çš„çºµåæ ‡
-const int need[City_Num] = {0, 20, 20, 20, 10, 20, 20, 20, 30, 30, 40};//å‚¨å­˜æ¯ä¸ªåŸå¸‚çš„éœ€æ±‚é‡
+const int Q = 100;//±íÊ¾ÂìÒÏÑ­»·Ò»´ÎËùÊÍ·ÅµÄĞÅÏ¢ËØ×ÜÁ¿
+const double Theta = 0.2;//±íÊ¾ĞÅÏ¢ËØµÄË¥¼õÂÊ
+const int Ant_num = 50;//ÂìÒÏÊıÁ¿
+const int item = 1000;//µü´ú´ÎÊı
+const int max_v = 120;//×î´óÈİÁ¿
+const double Correction_X[City_Num] = {40, 25, 15, 10, 5, 0, 44, 35, 95, 85, 65};//³ÇÊĞµÄºá×ø±ê
+const double Correction_Y[City_Num] = {50, 85, 75, 35, 35, 40, 5, 5, 30, 35, 85};//³ÇÊĞµÄ×İ×ø±ê
+const int need[City_Num] = {0, 20, 20, 20, 10, 20, 20, 20, 30, 30, 40};//´¢´æÃ¿¸ö³ÇÊĞµÄĞèÇóÁ¿
 
 
 #endif //ACO_INFORMATION_H

@@ -35,19 +35,19 @@ void CVRP::Update(Graph g) {
 
 void CVRP::Search(Graph g) {
     for (int i = 0; i < item; i++) {
-        //èš‚èšç§»åŠ¨
+        //ÂìÒÏÒÆ¶¯
         for (auto &ant: ants) {
             ant.Search(g);
         }
-        //æ›´æ–°å…¨å±€æœ€ä¼˜å€¼
+        //¸üÐÂÈ«¾Ö×îÓÅÖµ
         for (auto &ant: ants) {
             if (ant.Path_Length < best_ant.Path_Length) {
                 best_ant = ant;
             }
         }
-        //æ›´æ–°ä¿¡æ¯ç´ 
+        //¸üÐÂÐÅÏ¢ËØ
         Update(g);
-        cout << "ç¬¬"<<i+1<<"æ¬¡è¿­ä»£ï¼Œæœ€ä¼˜è·¯å¾„é•¿åº¦ä¸ºï¼š" << best_ant.Path_Length << endl;
+        cout << "µÚ"<<i+1<<"´Îµü´ú£¬×îÓÅÂ·¾¶³¤¶ÈÎª£º" << best_ant.Path_Length << endl;
     }
 
     for (int i: best_ant.Path) {

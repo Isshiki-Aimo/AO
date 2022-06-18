@@ -11,8 +11,8 @@
 class Graph {
 public:
 
-    double Distance[City_Num][City_Num];//è·ç¦»çŸ©é˜µ
-    double Pheromone[City_Num][City_Num];//ä¿¡æ¯ç´ çŸ©é˜µ
+    double Distance[City_Num][City_Num];//¾àÀë¾ØÕó
+    double Pheromone[City_Num][City_Num];//ĞÅÏ¢ËØ¾ØÕó
     void Init();
 };
 
