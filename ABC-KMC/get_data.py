@@ -40,3 +40,7 @@ def find_max_min(data_matrix):
         max_list.append(max(data_matrix[:, i]))
         min_list.append(min(data_matrix[:, i]))
     return max_list, min_list
+
+
+
+

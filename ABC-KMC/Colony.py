@@ -184,7 +184,7 @@ class Colony:
 
 
 seed(8)
-data, label, label_dict = get_my_data("iris.txt")
+data, label, label_dict = get_my_data("balance-scale.txt")
 data_matrix = get_data_matrix(data)
 max_list, min_list = find_max_min(data_matrix)
 colony = Colony(pop_size=10, dimension=data_matrix.shape[1], max_iter=120, limit=15, class_num=3,

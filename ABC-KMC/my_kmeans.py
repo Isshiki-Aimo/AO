@@ -115,7 +115,7 @@ def get_true_label(distance, label_dict, label, cluster, K):
 
 if __name__ == '__main__':
     np.random.seed(8)
-    data, label, label_dict = get_my_data("iris.txt")
+    data, label, label_dict = get_my_data("balance-scale.txt")
     data_matrix = get_data_matrix(data)
     center = init_center(data_matrix, 3)
     for i in range(100):
