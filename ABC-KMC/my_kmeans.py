@@ -114,7 +114,7 @@ def get_true_label(distance, label_dict, label, cluster, K):
 
 
 if __name__ == '__main__':
-    np.random.seed(8)
+    # np.random.seed(8)
     data, label, label_dict = get_my_data("balance-scale.txt")
     data_matrix = get_data_matrix(data)
     center = init_center(data_matrix, 3)
@@ -127,4 +127,4 @@ if __name__ == '__main__':
         center = compute_center(data_matrix, cluster, 3)
     true_lable = get_true_label(distance, label_dict.keys(), label, cluster, 3)
     error = val_cluster(cluster, label)
-    print("The error of K-means is:", error)
+    print("The error of K-means is:",1- error)

@@ -1,6 +1,6 @@
 from Bee import *
 from my_kmeans import *
-
+import matplotlib.pyplot as plt
 
 class Colony:
     def __init__(self, pop_size, dimension, max_iter, limit, class_num, max_solution, min_solution, matrix_data):
@@ -173,6 +173,7 @@ class Colony:
 
     def run(self):
         self.savebest_nectar()
+        all_best = []
         for i in range(self.max_iter):
             self.employed_bees_search()
             self.compute_prob()
@@ -180,20 +181,27 @@ class Colony:
             self.scout_bees_search()
             self.savebest_nectar()
             print("第%d次迭代，最优值为%f" % (i, self.best_nectar.fitness))
-        return self.best_nectar
+            all_best.append(self.best_nectar.fitness)
+        return all_best
 
 
-seed(8)
+# seed(8)
 data, label, label_dict = get_my_data("balance-scale.txt")
 data_matrix = get_data_matrix(data)
 max_list, min_list = find_max_min(data_matrix)
-colony = Colony(pop_size=10, dimension=data_matrix.shape[1], max_iter=120, limit=15, class_num=3,
+colony = Colony(pop_size=10, dimension=data_matrix.shape[1], max_iter=150, limit=15, class_num=3,
                 max_solution=max_list, min_solution=min_list, matrix_data=data_matrix)
 bee = Bee(colony.dimension, colony.max_solution, colony.min_solution, colony.class_num)
-colony.run()
+all_best = colony.run()
 my_center = colony.best_nectar.solution
 distance = compute_distance(data_matrix, my_center)
 cluster = get_cluster(distance)
 true_lable = get_true_label(distance, label_dict.keys(), label, cluster, 3)
 error = val_cluster(cluster, label)
-print("The error of K-means is:", error)
+print("The error of K-means is:",1- error)
+
+plt.plot(all_best)
+plt.title("The best fitness of each iteration for balance")
+plt.xlabel("Iteration")
+plt.ylabel("Fitness")
+plt.show()
